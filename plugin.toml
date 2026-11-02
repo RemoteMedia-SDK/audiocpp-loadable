@@ -1,0 +1,9 @@
+[plugin]
+name = "audiocpp"
+version = "0.1.0"
+language = "rust"
+description = "audio.cpp native audio inference and model lifecycle"
+
+[rust]
+node_types = ["AudioCppNode", "AudioCppModelManagerNode"]
+asset_pattern = "lib{name}-{arch}-{os}.{ext}"

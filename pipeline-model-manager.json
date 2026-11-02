@@ -1,0 +1,7 @@
+{
+  "version": "v1",
+  "metadata": {"name": "audio.cpp model management"},
+  "plugins": ["./dist/cpu/audiocpp_loadable.dll"],
+  "nodes": [{"id": "models", "node_type": "AudioCppModelManagerNode", "params": {"library_dir": "./dist/cpu"}, "is_output_node": true}],
+  "connections": []
+}

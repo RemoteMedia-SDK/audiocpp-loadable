@@ -1,0 +1,4 @@
+/target/
+/native/build*/
+/dist/
+/native/*.log

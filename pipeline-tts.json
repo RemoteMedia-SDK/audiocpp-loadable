@@ -1,0 +1,7 @@
+{
+  "version": "v1",
+  "metadata": {"name": "audio.cpp streaming PocketTTS"},
+  "plugins": ["./dist/cpu/audiocpp_loadable.dll"],
+  "nodes": [{"id": "tts", "node_type": "AudioCppNode", "params": {"library_dir": "./dist/cpu", "model": "pocket_tts_english_q8_0", "family": "pocket_tts", "task": "tts", "mode": "streaming", "threads": 4}, "is_streaming": true, "is_output_node": true}],
+  "connections": []
+}
