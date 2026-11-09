@@ -394,8 +394,8 @@ checksum = "32a66949e030da00e8c7d4434b251670a91556f4144941d37452769c25d58a53"
 
 [[package]]
 name = "loadable-node-abi"
-version = "0.3.0"
-source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=44e02a9d24b1427cce48bc32ef837142787d0ba3#44e02a9d24b1427cce48bc32ef837142787d0ba3"
+version = "0.5.0"
+source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=605d203e3597a98d8190bf99686a43234624a05c#605d203e3597a98d8190bf99686a43234624a05c"
 dependencies = [
  "abi_stable",
  "async-ffi",
@@ -580,8 +580,8 @@ checksum = "d6f6ff9a378485b298a5286656da665ba74413d36db0979633275d2e708145d4"
 
 [[package]]
 name = "remotemedia-plugin-sdk"
-version = "0.5.0"
-source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=44e02a9d24b1427cce48bc32ef837142787d0ba3#44e02a9d24b1427cce48bc32ef837142787d0ba3"
+version = "0.7.0"
+source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=605d203e3597a98d8190bf99686a43234624a05c#605d203e3597a98d8190bf99686a43234624a05c"
 dependencies = [
  "abi_stable",
  "async-ffi",
@@ -599,7 +599,7 @@ dependencies = [
 [[package]]
 name = "remotemedia-traits"
 version = "0.4.0"
-source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=44e02a9d24b1427cce48bc32ef837142787d0ba3#44e02a9d24b1427cce48bc32ef837142787d0ba3"
+source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=605d203e3597a98d8190bf99686a43234624a05c#605d203e3597a98d8190bf99686a43234624a05c"
 dependencies = [
  "arc-swap",
  "async-trait",
@@ -614,7 +614,7 @@ dependencies = [
 [[package]]
 name = "remotemedia-types"
 version = "0.4.0"
-source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=44e02a9d24b1427cce48bc32ef837142787d0ba3#44e02a9d24b1427cce48bc32ef837142787d0ba3"
+source = "git+https://github.com/RemoteMedia-SDK/remotemedia-plugin-sdk?rev=605d203e3597a98d8190bf99686a43234624a05c#605d203e3597a98d8190bf99686a43234624a05c"
 dependencies = [
  "serde",
  "serde_json",

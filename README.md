@@ -7,7 +7,19 @@ Two standalone Rust factories embed audio.cpp in the host process:
 
 This repository is the canonical source of the plugin. RemoteMedia SDK examples that link it in-process (for example `examples/live-link-face-avatar`) expect a clone of it next to the `remotemedia-sdk` checkout, at `../audiocpp-loadable`, like the other plugin repositories.
 
-Upstream is pinned to `06c13737cc39481787a03465697b58b1c954b56f`. The plugin SDK is pinned to the host's `44e02a9d24b1427cce48bc32ef837142787d0ba3`. No native inference dependency is added to the main Cargo workspace.
+Upstream is pinned to `06c13737cc39481787a03465697b58b1c954b56f`. The plugin SDK is pinned to `605d203e3597a98d8190bf99686a43234624a05c` (remotemedia-plugin-sdk 0.7.0, loadable-node-abi 0.5.0, the same crates as the host's pin). No native inference dependency is added to the main Cargo workspace.
+
+## Releases
+
+Pushing a `v*` tag runs `.github/workflows/release.yml`, the shared
+`build-plugin.yml` from remotemedia-plugin-sdk. It builds the plugin library for
+x86_64/aarch64 Linux, aarch64 macOS and x86_64 Windows, checks it resolves
+loadable-node-abi 0.5.0, and publishes `libaudiocpp-{arch}-{os}.{ext}` with a
+`release-manifest.json`, so a manifest can declare `"plugins": ["audiocpp-loadable@v0.1.0"]`.
+
+The release carries only the plugin library. The audio.cpp native libraries
+(`audiocpp` and `audiocpp_manager_bridge`) still come from `build.ps1` or the
+CMake project. Point `library_dir` (or `AUDIOCPP_LIBRARY_DIR`) at them.
 
 ## Build and run on Windows
 
