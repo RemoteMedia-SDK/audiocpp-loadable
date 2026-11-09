@@ -34,6 +34,17 @@ cargo build --locked --release
 
 Those platforms are build configurations, not claims of validation on this Windows machine.
 
+## Native Android
+
+`build-android.ps1` cross-compiles the native C API, model-manager bridge and CLI
+for ARM64 Android; `test-android.ps1` runs inference on an explicitly selected
+ADB device. Pixel 6 Pro validation includes real IndexTTS 2.5 GGUF synthesis.
+See [ANDROID.md](ANDROID.md) for reproduction, timings and the remaining APK,
+loadable-plugin and remote-runner integration work.
+
+[QWEN3_ANDROID.md](QWEN3_ANDROID.md) describes the Qwen3-TTS comparison benchmark,
+with separate loading/preparation timings and repeated requests in one session.
+
 ## Pipeline configuration
 
 Reference the local `audiocpp_loadable.dll` in the pipeline's `plugins` list. Create nodes with `node_type` equal to one of the two factories and pass these configuration fields through `params`:
@@ -88,7 +99,7 @@ Plain `RuntimeData::Text` and `RuntimeData::Audio` become text and PCM requests.
 
 Audio is `{ "samples": [0.0], "sample_rate": 16000, "channels": 1 }`, with interleaved finite f32 samples. Artifacts contain `kind` (the upstream numeric enum 0–8), `id`, byte-array `payload`, and optional string metadata. Request options can be scalar strings/numbers/bools or string lists. Set a model's language option separately in `options` when required by its declared schema.
 
-Offline requests produce audio/text and a metadata result carrying segments, word timestamps, speaker turns, named outputs and artifacts. The streaming callback receives each emission as it arrives. The single-output `process` interface returns all emissions in an `outputs` array when necessary, serialized as `RuntimeData` values; it never drops intermediate outputs.
+Offline requests produce audio/text and a metadata result carrying segments, word timestamps, speaker turns, named outputs and artifacts. An offline node keeps its native session between requests (released on `reset`, on error, or when the node is dropped), so per-session caches such as IndexTTS's prepared speaker reference are reused and the session's graph arenas are allocated once; while the node holds it, `unload` of that model is rejected like for an active stream. The streaming callback receives each emission as it arrives. The single-output `process` interface returns all emissions in an `outputs` array when necessary, serialized as `RuntimeData` values; it never drops intermediate outputs.
 
 For streaming audio input, send `operation: start`, then `push` with each audio chunk, then `finish`. A first `push` can implicitly start the stream. `poll` drains queued native events, and `reset` releases the session. Text-only streaming defaults to `generate`, which starts, drains events and finishes in one request. Explicit `start` leaves the stream open until `finish`/`reset`. A model that lacks the requested streaming mode fails explicitly.
 

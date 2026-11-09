@@ -2,3 +2,4 @@
 /native/build*/
 /dist/
 /native/*.log
+__pycache__/

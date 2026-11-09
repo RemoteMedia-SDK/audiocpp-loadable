@@ -25,6 +25,14 @@ if(NOT EXPECTED_HEADER STREQUAL ACTUAL_HEADER)
   message(FATAL_ERROR "audio.cpp header differs from the pinned Rust bindings header")
 endif()
 add_subdirectory("${AUDIOCPP_SOURCE_DIR}" audiocpp-source EXCLUDE_FROM_ALL)
+if(ANDROID)
+  # SentencePiece's bundled protobuf logger calls __android_log_write.
+  # Propagate liblog to every native consumer, including the CLI and C ABI.
+  target_link_libraries(engine_runtime PUBLIC log)
+  add_executable(qwen3_android_bench EXCLUDE_FROM_ALL qwen3_android_bench.cpp)
+  target_link_libraries(qwen3_android_bench PRIVATE engine_runtime ggml)
+  set_target_properties(qwen3_android_bench PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+endif()
 add_library(audiocpp_manager_bridge SHARED manager.cpp)
 target_link_libraries(audiocpp_manager_bridge PRIVATE audiocpp_package_manager)
 set_target_properties(audiocpp_manager_bridge PROPERTIES

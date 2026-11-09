@@ -1,0 +1,251 @@
+{
+  "date_utc": "2026-11-03",
+  "device": {
+    "model": "Pixel 6 Pro",
+    "api": 36,
+    "soc": "Google Tensor"
+  },
+  "configuration": {
+    "model": "qwen3_tts_1_7b_base_q8_0",
+    "model_bytes": 2695186240,
+    "model_sha256": "92641a8022d521efd79a5db45e952589b3f2b781680f9abfcf26f075d37b86c6",
+    "reference_seconds": 14.374666666666666,
+    "reference_sha256": "18ddd20a99f93d461c033d7b1456fafc1db19b846d601895465f7b90b7dca575",
+    "backend": "cpu",
+    "threads": 4,
+    "seed": 42,
+    "requested_max_new_tokens": 256,
+    "token_limit_note": "Historical full-reference run used max_new_tokens, which this pinned session ignores; the model default applied. The harness now uses max_tokens."
+  },
+  "build": {
+    "target": "aarch64-linux-android",
+    "api": 28,
+    "backend": "cpu",
+    "arm_architecture": "armv8.2-a+dotprod+fp16",
+    "models": [
+      "pocket_tts",
+      "index_tts2",
+      "pulsevad",
+      "moonshine_asr",
+      "qwen3_tts"
+    ],
+    "upstream_revision": "06c13737cc39481787a03465697b58b1c954b56f",
+    "ndk_revision": "30.0.16248370",
+    "artifacts": [
+      {
+        "sha256": "FA89DDCC170D14ED1F51AA070A4005F6B963DDE7C2489970A73459D4D6E24A38",
+        "name": "libaudiocpp.so",
+        "bytes": 5892136
+      },
+      {
+        "sha256": "3FAC45CA3D43E3DCA87C1488E8B2832BE29F42E8FE91980D6B56F1AE33522FFE",
+        "name": "libaudiocpp_manager_bridge.so",
+        "bytes": 3709216
+      },
+      {
+        "sha256": "316EB7E157B2D57DE2BDC3678BCBCCA1CBD3BBF6B6B9FB6B35679CCFD3E5E7BC",
+        "name": "audiocpp_cli",
+        "bytes": 6203400
+      },
+      {
+        "sha256": "ACEF57F0C3B473346FAD23AD877E48C03794FA1150616903CC188C245FB06652",
+        "name": "audiocpp_model_manager",
+        "bytes": 2805264
+      },
+      {
+        "sha256": "21FB72CD530B34CBA0DBF656B3274918C3E2E36A5DD1C2ACA6F9FF59154BBF29",
+        "name": "audiocpp_c_api_path_test",
+        "bytes": 26312
+      },
+      {
+        "sha256": "40992693B2C6593861C64C906E6ABADC02ABE528BAC8C4F5F586D8FCFE2CEEBD",
+        "name": "qwen3_android_bench",
+        "bytes": 5840592
+      },
+      {
+        "sha256": "B5D97C38A728AFE28D341CDA3369F512D35EAF9C680C1B0563CD6A63E395230F",
+        "name": "libc++_shared.so",
+        "bytes": 1423696
+      }
+    ]
+  },
+  "native_exit_code": 0,
+  "native_total_ms": 388384,
+  "model_load_ms": 276.191,
+  "session_create_ms": 1856.89,
+  "process_peak_rss_gib": 5.515289306640625,
+  "repeated_first_wav_identical": true,
+  "requests": [
+    {
+      "text": "Hold this position until the convoy gets through. Nobody moves without my signal.",
+      "timing": {
+        "phase": "synthesis",
+        "request": 0,
+        "milliseconds": 69790,
+        "audio_seconds": 4.32,
+        "real_time_factor": 16.1551,
+        "sample_rate": 24000,
+        "channels": 1,
+        "peak": 0.678288,
+        "rms": 0.0742091,
+        "process_peak_rss_kib": 5754688
+      },
+      "phases": {
+        "reference_prompt_ms": 5467.574385,
+        "text_prefill_ms": 0.119629,
+        "talker_ms": 26185.935723,
+        "speech_decoder_ms": 38133.202656,
+        "session_wall_ms": 69789.62304
+      },
+      "audio": {
+        "file": "request_0.wav",
+        "seconds": 4.32,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sha256": "f4f6e48f0826893f52e2bdf7b5378c7e96b94f24e019ec0999f0a781e56402d2"
+      },
+      "asr": "Hold this position until the Convoy gets through nobody moves without my signal"
+    },
+    {
+      "text": "I've seen a lot of good soldiers go down in places like this. Don't be one of them.",
+      "timing": {
+        "phase": "synthesis",
+        "request": 1,
+        "milliseconds": 69488,
+        "audio_seconds": 4.08,
+        "real_time_factor": 17.0314,
+        "sample_rate": 24000,
+        "channels": 1,
+        "peak": 0.632174,
+        "rms": 0.0635664,
+        "process_peak_rss_kib": 5758036
+      },
+      "phases": {
+        "reference_prompt_ms": 4.130005,
+        "text_prefill_ms": 0.198852,
+        "talker_ms": 26376.766858,
+        "speech_decoder_ms": 43103.016908,
+        "session_wall_ms": 69487.543124
+      },
+      "audio": {
+        "file": "request_1.wav",
+        "seconds": 4.08,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sha256": "ae3b45c1c93a54772919fcd01d7c9a0993231f82769a177095bd26a974a1dae7"
+      },
+      "asr": "I've seen a lot of good soldiers go down in places like this don't be one of them of"
+    },
+    {
+      "text": "Alright, listen up. We breach on three, clear the stairs, and regroup on the roof.",
+      "timing": {
+        "phase": "synthesis",
+        "request": 2,
+        "milliseconds": 73774.7,
+        "audio_seconds": 3.68,
+        "real_time_factor": 20.0475,
+        "sample_rate": 24000,
+        "channels": 1,
+        "peak": 0.610507,
+        "rms": 0.0802151,
+        "process_peak_rss_kib": 5758036
+      },
+      "phases": {
+        "reference_prompt_ms": 4.836182,
+        "text_prefill_ms": 0.210815,
+        "talker_ms": 25733.196546,
+        "speech_decoder_ms": 48031.592227,
+        "session_wall_ms": 73773.970332
+      },
+      "audio": {
+        "file": "request_2.wav",
+        "seconds": 3.68,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sha256": "1635519c3dc09ff59360c776d9cabe2de701241917f611d1d5ec7adcb1217ab3"
+      },
+      "asr": "All right listen up we preach on three clear the stairs and regroup on the roof"
+    },
+    {
+      "text": "You did well out there today. Get some rest, because tomorrow is going to be a lot worse.",
+      "timing": {
+        "phase": "synthesis",
+        "request": 3,
+        "milliseconds": 86360,
+        "audio_seconds": 4.56,
+        "real_time_factor": 18.9386,
+        "sample_rate": 24000,
+        "channels": 1,
+        "peak": 0.610278,
+        "rms": 0.0800289,
+        "process_peak_rss_kib": 5780092
+      },
+      "phases": {
+        "reference_prompt_ms": 8.566814,
+        "text_prefill_ms": 0.304972,
+        "talker_ms": 28330.639622,
+        "speech_decoder_ms": 58013.312569,
+        "session_wall_ms": 86359.265138
+      },
+      "audio": {
+        "file": "request_3.wav",
+        "seconds": 4.56,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sha256": "85a6e800952f96b1078c862d00dbdf7d3469bfa82d2997a370fef155b93f4aaf"
+      },
+      "asr": "You did well out there today get some rest because tomorrow is going to be a lot worse"
+    },
+    {
+      "text": "Hold this position until the convoy gets through. Nobody moves without my signal.",
+      "timing": {
+        "phase": "synthesis",
+        "request": 4,
+        "milliseconds": 86798.2,
+        "audio_seconds": 4.32,
+        "real_time_factor": 20.0922,
+        "sample_rate": 24000,
+        "channels": 1,
+        "peak": 0.678288,
+        "rms": 0.0742091,
+        "process_peak_rss_kib": 5783200
+      },
+      "phases": {
+        "reference_prompt_ms": 8.592122,
+        "text_prefill_ms": 0.307455,
+        "talker_ms": 30074.902684,
+        "speech_decoder_ms": 56707.479195,
+        "session_wall_ms": 86797.521649
+      },
+      "audio": {
+        "file": "request_4.wav",
+        "seconds": 4.32,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sha256": "f4f6e48f0826893f52e2bdf7b5378c7e96b94f24e019ec0999f0a781e56402d2"
+      },
+      "asr": null
+    }
+  ],
+  "checks": {
+    "native_build": "passed",
+    "five_nonempty_finite_non_silent_outputs": "passed",
+    "input_model_transfer_sha256": "matched",
+    "concurrent_run_rejection": "passed",
+    "speech_content": "Four on-device ASR transcripts retained; minor differences, not a human listening assessment"
+  },
+  "earlier_attempt": {
+    "name": "reece-full-reference",
+    "outcome": "Wireless ADB transport loss; first WAV subsequently recovered; suite interrupted",
+    "adb_exit_code": 255,
+    "first_synthesis_ms": 71140.25801
+  },
+  "limitations": [
+    "CPU only; Vulkan and NNAPI not tested",
+    "Native C++ runtime benchmark, not an APK or Rust loadable ABI test",
+    "Model load and session creation separated from synthesis; first synthesis includes reference encoding",
+    "Fresh processes used cached local model storage, not a cold filesystem cache",
+    "No statistical latency or speaker-similarity certification",
+    "Later requests slowed; post-run thermal snapshot does not establish causality"
+  ]
+}

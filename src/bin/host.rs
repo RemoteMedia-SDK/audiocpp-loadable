@@ -68,6 +68,16 @@ async fn main() -> Result<()> {
     } else {
         parse(args.get(5).ok_or("missing REQUEST_JSON")?)?
     };
+    // `infer` with an array runs each request in turn on the same node, so
+    // they share its offline session the way a pipeline's requests do.
+    if let (false, Value::Array(requests)) = (manager, &value) {
+        let mut outputs = Vec::new();
+        for request in requests {
+            outputs.push(invoke(&node, request.clone()).await?);
+        }
+        println!("{}", serde_json::to_string_pretty(&outputs)?);
+        return Ok(());
+    }
     let mut output = invoke(&node, value).await?;
     // Keep this short-lived CLI alive until its download job finishes. Pipeline
     // callers still receive the asynchronous job ID immediately.

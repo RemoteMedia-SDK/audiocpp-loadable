@@ -1,0 +1,540 @@
+{
+  "date_utc": "2026-11-03",
+  "device": {
+    "model": "Pixel 6 Pro",
+    "api": 36,
+    "soc": "Google Tensor"
+  },
+  "configuration": {
+    "model_sha256": "92641a8022d521efd79a5db45e952589b3f2b781680f9abfcf26f075d37b86c6",
+    "reference_sha256": "18ddd20a99f93d461c033d7b1456fafc1db19b846d601895465f7b90b7dca575",
+    "voice_mode": "precomputed",
+    "reused_embedding_sha256": null,
+    "cases": [
+      "Hold this position until the convoy gets through. Nobody moves without my signal.",
+      "I've seen a lot of good soldiers go down in places like this. Don't be one of them.",
+      "Alright, listen up. We breach on three, clear the stairs, and regroup on the roof.",
+      "You did well out there today. Get some rest, because tomorrow is going to be a lot worse.",
+      "Hold this position until the convoy gets through. Nobody moves without my signal."
+    ],
+    "seed": 42,
+    "max_new_tokens": 256,
+    "backend": "cpu",
+    "threads": 4,
+    "build": {
+      "target": "aarch64-linux-android",
+      "api": 28,
+      "backend": "cpu",
+      "arm_architecture": "armv8.2-a+dotprod+fp16",
+      "models": [
+        "pocket_tts",
+        "index_tts2",
+        "pulsevad",
+        "moonshine_asr",
+        "qwen3_tts"
+      ],
+      "upstream_revision": "06c13737cc39481787a03465697b58b1c954b56f",
+      "ndk_revision": "30.0.16248370",
+      "artifacts": [
+        {
+          "sha256": "FA89DDCC170D14ED1F51AA070A4005F6B963DDE7C2489970A73459D4D6E24A38",
+          "name": "libaudiocpp.so",
+          "bytes": 5892136
+        },
+        {
+          "sha256": "3FAC45CA3D43E3DCA87C1488E8B2832BE29F42E8FE91980D6B56F1AE33522FFE",
+          "name": "libaudiocpp_manager_bridge.so",
+          "bytes": 3709216
+        },
+        {
+          "sha256": "01BF0A687766088E5A4926FAACE5C96128C43C3B0B72CB75CC4E84EDF623793D",
+          "name": "audiocpp_cli",
+          "bytes": 6203400
+        },
+        {
+          "sha256": "ACEF57F0C3B473346FAD23AD877E48C03794FA1150616903CC188C245FB06652",
+          "name": "audiocpp_model_manager",
+          "bytes": 2805264
+        },
+        {
+          "sha256": "21FB72CD530B34CBA0DBF656B3274918C3E2E36A5DD1C2ACA6F9FF59154BBF29",
+          "name": "audiocpp_c_api_path_test",
+          "bytes": 26312
+        },
+        {
+          "sha256": "B77704F33358A7F9F01ECF8944D402E6A941AF1C0765676F34FB2AADFF95DC87",
+          "name": "qwen3_android_bench",
+          "bytes": 5854880
+        },
+        {
+          "sha256": "B5D97C38A728AFE28D341CDA3369F512D35EAF9C680C1B0563CD6A63E395230F",
+          "name": "libc++_shared.so",
+          "bytes": 1423696
+        }
+      ]
+    }
+  },
+  "speaker_embedding": {
+    "bytes": 27262,
+    "sha256": "8eb8c449e7ae1d0d0d84c95eada2aca566f7301b9e332b5ced66fd569ea2d624",
+    "dimensions": 2048,
+    "path": "examples\\audiocpp-loadable\\dist\\android-arm64-qwen3-precomputed\\device-results\\reece-precomputed\\audio\\voice.json"
+  },
+  "precompute_events": [
+    {
+      "phase": "model_load",
+      "request": -1,
+      "milliseconds": 89.7116
+    },
+    {
+      "phase": "speaker_encoder_create",
+      "request": -1,
+      "milliseconds": 38.8656
+    },
+    {
+      "phase": "speaker_embedding_compute",
+      "request": -1,
+      "milliseconds": 2013.83
+    },
+    {
+      "phase": "precompute_total",
+      "request": -1,
+      "milliseconds": 2147.35
+    }
+  ],
+  "startup": [
+    {
+      "phase": "model_load",
+      "request": -1,
+      "milliseconds": 73.756
+    },
+    {
+      "phase": "speaker_embedding_load",
+      "request": -1,
+      "milliseconds": 0.673137
+    },
+    {
+      "phase": "session_create",
+      "request": -1,
+      "milliseconds": 1796.46
+    }
+  ],
+  "synthesis": [
+    {
+      "phase": "synthesis",
+      "request": 0,
+      "milliseconds": 39068.8,
+      "audio_seconds": 5.52,
+      "real_time_factor": 7.07768,
+      "sample_rate": 24000,
+      "channels": 1,
+      "peak": 0.677331,
+      "rms": 0.0719937,
+      "process_peak_rss_kib": 3484104,
+      "talker_ms": 28664.626601,
+      "speech_decoder_ms": 10402.906255
+    },
+    {
+      "phase": "synthesis",
+      "request": 1,
+      "milliseconds": 34968.3,
+      "audio_seconds": 5.12,
+      "real_time_factor": 6.82974,
+      "sample_rate": 24000,
+      "channels": 1,
+      "peak": 0.492855,
+      "rms": 0.0574623,
+      "process_peak_rss_kib": 3485860,
+      "talker_ms": 25124.421074,
+      "speech_decoder_ms": 9843.661341
+    },
+    {
+      "phase": "synthesis",
+      "request": 2,
+      "milliseconds": 37996.6,
+      "audio_seconds": 5.28,
+      "real_time_factor": 7.19633,
+      "sample_rate": 24000,
+      "channels": 1,
+      "peak": 0.439631,
+      "rms": 0.0590352,
+      "process_peak_rss_kib": 3485860,
+      "talker_ms": 27490.515151,
+      "speech_decoder_ms": 10505.901861
+    },
+    {
+      "phase": "synthesis",
+      "request": 3,
+      "milliseconds": 41229.7,
+      "audio_seconds": 5.76,
+      "real_time_factor": 7.15794,
+      "sample_rate": 24000,
+      "channels": 1,
+      "peak": 0.519443,
+      "rms": 0.0704686,
+      "process_peak_rss_kib": 3510540,
+      "talker_ms": 29682.640599,
+      "speech_decoder_ms": 11546.850022
+    },
+    {
+      "phase": "synthesis",
+      "request": 4,
+      "milliseconds": 39687.2,
+      "audio_seconds": 5.52,
+      "real_time_factor": 7.18972,
+      "sample_rate": 24000,
+      "channels": 1,
+      "peak": 0.677331,
+      "rms": 0.0719937,
+      "process_peak_rss_kib": 3510540,
+      "talker_ms": 28555.367365,
+      "speech_decoder_ms": 11131.605718
+    }
+  ],
+  "clips": [
+    {
+      "file": "request_0.wav",
+      "seconds": 5.52,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "d3ae17dc2f1bd49e7be05204c1a16b1b42d162c8f567a08a8eeec39f8db279a5"
+    },
+    {
+      "file": "request_1.wav",
+      "seconds": 5.12,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "c5c6d11cbcba3561a7acecdda184cf1975afa94c27ea1797a7b2ce24d63a7f9f"
+    },
+    {
+      "file": "request_2.wav",
+      "seconds": 5.28,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "f95808fe31745830758d257edd38812bfe559388ece1d3e7b67abd925057c08c"
+    },
+    {
+      "file": "request_3.wav",
+      "seconds": 5.76,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "1016f5beb3afd02fd91823d329cf229e733f39e466720f28d7b4801ddf5e89b3"
+    },
+    {
+      "file": "request_4.wav",
+      "seconds": 5.52,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "d3ae17dc2f1bd49e7be05204c1a16b1b42d162c8f567a08a8eeec39f8db279a5"
+    }
+  ],
+  "equivalence": {
+    "warm_repeat": true,
+    "fresh_process_reload_without_reference": true,
+    "upstream_x_vector_session": true,
+    "sha256": "d3ae17dc2f1bd49e7be05204c1a16b1b42d162c8f567a08a8eeec39f8db279a5"
+  },
+  "followup_runs": {
+    "reece-precomputed-reload": {
+      "summary": {
+        "exit_code": 0,
+        "native_exit_confirmed": true,
+        "host_observed_seconds": 51.796999999991385,
+        "polling_interval_seconds": 10,
+        "events": [
+          {
+            "phase": "model_load",
+            "request": -1,
+            "milliseconds": 90.8102
+          },
+          {
+            "phase": "speaker_embedding_load",
+            "request": -1,
+            "milliseconds": 0.775106
+          },
+          {
+            "phase": "session_create",
+            "request": -1,
+            "milliseconds": 1644.59
+          },
+          {
+            "phase": "prepare",
+            "request": 0,
+            "milliseconds": 0.000976
+          },
+          {
+            "phase": "synthesis_started",
+            "request": 0
+          },
+          {
+            "phase": "synthesis",
+            "request": 0,
+            "milliseconds": 39913.4,
+            "audio_seconds": 5.52,
+            "real_time_factor": 7.23068,
+            "sample_rate": 24000,
+            "channels": 1,
+            "peak": 0.677331,
+            "rms": 0.0719937,
+            "process_peak_rss_kib": 3486260
+          },
+          {
+            "phase": "total",
+            "request": -1,
+            "milliseconds": 41654
+          }
+        ],
+        "clips": [
+          {
+            "file": "request_0.wav",
+            "seconds": 5.52,
+            "sample_rate": 24000,
+            "channels": 1,
+            "sha256": "d3ae17dc2f1bd49e7be05204c1a16b1b42d162c8f567a08a8eeec39f8db279a5"
+          }
+        ],
+        "precompute_events": [],
+        "speaker_embedding": {
+          "bytes": 27262,
+          "sha256": "8eb8c449e7ae1d0d0d84c95eada2aca566f7301b9e332b5ced66fd569ea2d624"
+        }
+      },
+      "inputs": {
+        "model_sha256": "92641a8022d521efd79a5db45e952589b3f2b781680f9abfcf26f075d37b86c6",
+        "reference_sha256": null,
+        "voice_mode": "precomputed",
+        "reused_embedding_sha256": "8eb8c449e7ae1d0d0d84c95eada2aca566f7301b9e332b5ced66fd569ea2d624",
+        "cases": [
+          "Hold this position until the convoy gets through. Nobody moves without my signal."
+        ],
+        "seed": 42,
+        "max_new_tokens": 256,
+        "backend": "cpu",
+        "threads": 4,
+        "build": {
+          "target": "aarch64-linux-android",
+          "api": 28,
+          "backend": "cpu",
+          "arm_architecture": "armv8.2-a+dotprod+fp16",
+          "models": [
+            "pocket_tts",
+            "index_tts2",
+            "pulsevad",
+            "moonshine_asr",
+            "qwen3_tts"
+          ],
+          "upstream_revision": "06c13737cc39481787a03465697b58b1c954b56f",
+          "ndk_revision": "30.0.16248370",
+          "artifacts": [
+            {
+              "sha256": "FA89DDCC170D14ED1F51AA070A4005F6B963DDE7C2489970A73459D4D6E24A38",
+              "name": "libaudiocpp.so",
+              "bytes": 5892136
+            },
+            {
+              "sha256": "3FAC45CA3D43E3DCA87C1488E8B2832BE29F42E8FE91980D6B56F1AE33522FFE",
+              "name": "libaudiocpp_manager_bridge.so",
+              "bytes": 3709216
+            },
+            {
+              "sha256": "01BF0A687766088E5A4926FAACE5C96128C43C3B0B72CB75CC4E84EDF623793D",
+              "name": "audiocpp_cli",
+              "bytes": 6203400
+            },
+            {
+              "sha256": "ACEF57F0C3B473346FAD23AD877E48C03794FA1150616903CC188C245FB06652",
+              "name": "audiocpp_model_manager",
+              "bytes": 2805264
+            },
+            {
+              "sha256": "21FB72CD530B34CBA0DBF656B3274918C3E2E36A5DD1C2ACA6F9FF59154BBF29",
+              "name": "audiocpp_c_api_path_test",
+              "bytes": 26312
+            },
+            {
+              "sha256": "054C1BB665DE0EAD022E40D632B25772AE29E23913C8ED4D64A1CEA5DC9EF944",
+              "name": "qwen3_android_bench",
+              "bytes": 5854880
+            },
+            {
+              "sha256": "B5D97C38A728AFE28D341CDA3369F512D35EAF9C680C1B0563CD6A63E395230F",
+              "name": "libc++_shared.so",
+              "bytes": 1423696
+            }
+          ]
+        }
+      }
+    },
+    "reece-xvector-control": {
+      "summary": {
+        "exit_code": 0,
+        "native_exit_confirmed": true,
+        "host_observed_seconds": 50.95299999999406,
+        "polling_interval_seconds": 10,
+        "events": [
+          {
+            "phase": "model_load",
+            "request": -1,
+            "milliseconds": 235.574
+          },
+          {
+            "phase": "session_create",
+            "request": -1,
+            "milliseconds": 1806.45
+          },
+          {
+            "phase": "prepare",
+            "request": 0,
+            "milliseconds": 0.960043
+          },
+          {
+            "phase": "synthesis_started",
+            "request": 0
+          },
+          {
+            "phase": "synthesis",
+            "request": 0,
+            "milliseconds": 44892.1,
+            "audio_seconds": 5.52,
+            "real_time_factor": 8.13263,
+            "sample_rate": 24000,
+            "channels": 1,
+            "peak": 0.677331,
+            "rms": 0.0719937,
+            "process_peak_rss_kib": 3753580
+          },
+          {
+            "phase": "total",
+            "request": -1,
+            "milliseconds": 46940.4
+          }
+        ],
+        "clips": [
+          {
+            "file": "request_0.wav",
+            "seconds": 5.52,
+            "sample_rate": 24000,
+            "channels": 1,
+            "sha256": "d3ae17dc2f1bd49e7be05204c1a16b1b42d162c8f567a08a8eeec39f8db279a5"
+          }
+        ],
+        "precompute_events": []
+      },
+      "inputs": {
+        "model_sha256": "92641a8022d521efd79a5db45e952589b3f2b781680f9abfcf26f075d37b86c6",
+        "reference_sha256": "18ddd20a99f93d461c033d7b1456fafc1db19b846d601895465f7b90b7dca575",
+        "voice_mode": "x-vector",
+        "reused_embedding_sha256": null,
+        "cases": [
+          "Hold this position until the convoy gets through. Nobody moves without my signal."
+        ],
+        "seed": 42,
+        "max_new_tokens": 256,
+        "backend": "cpu",
+        "threads": 4,
+        "build": {
+          "target": "aarch64-linux-android",
+          "api": 28,
+          "backend": "cpu",
+          "arm_architecture": "armv8.2-a+dotprod+fp16",
+          "models": [
+            "pocket_tts",
+            "index_tts2",
+            "pulsevad",
+            "moonshine_asr",
+            "qwen3_tts"
+          ],
+          "upstream_revision": "06c13737cc39481787a03465697b58b1c954b56f",
+          "ndk_revision": "30.0.16248370",
+          "artifacts": [
+            {
+              "sha256": "FA89DDCC170D14ED1F51AA070A4005F6B963DDE7C2489970A73459D4D6E24A38",
+              "name": "libaudiocpp.so",
+              "bytes": 5892136
+            },
+            {
+              "sha256": "3FAC45CA3D43E3DCA87C1488E8B2832BE29F42E8FE91980D6B56F1AE33522FFE",
+              "name": "libaudiocpp_manager_bridge.so",
+              "bytes": 3709216
+            },
+            {
+              "sha256": "01BF0A687766088E5A4926FAACE5C96128C43C3B0B72CB75CC4E84EDF623793D",
+              "name": "audiocpp_cli",
+              "bytes": 6203400
+            },
+            {
+              "sha256": "ACEF57F0C3B473346FAD23AD877E48C03794FA1150616903CC188C245FB06652",
+              "name": "audiocpp_model_manager",
+              "bytes": 2805264
+            },
+            {
+              "sha256": "21FB72CD530B34CBA0DBF656B3274918C3E2E36A5DD1C2ACA6F9FF59154BBF29",
+              "name": "audiocpp_c_api_path_test",
+              "bytes": 26312
+            },
+            {
+              "sha256": "054C1BB665DE0EAD022E40D632B25772AE29E23913C8ED4D64A1CEA5DC9EF944",
+              "name": "qwen3_android_bench",
+              "bytes": 5854880
+            },
+            {
+              "sha256": "B5D97C38A728AFE28D341CDA3369F512D35EAF9C680C1B0563CD6A63E395230F",
+              "name": "libc++_shared.so",
+              "bytes": 1423696
+            }
+          ]
+        }
+      }
+    }
+  },
+  "rejected_artifacts": [
+    {
+      "case": "model",
+      "exit_code": 1,
+      "error": "Qwen3 Android benchmark failed: Speaker embedding format, runtime or model mismatch"
+    },
+    {
+      "case": "revision",
+      "exit_code": 1,
+      "error": "Qwen3 Android benchmark failed: Speaker embedding format, runtime or model mismatch"
+    },
+    {
+      "case": "dimensions",
+      "exit_code": 1,
+      "error": "Qwen3 Android benchmark failed: Speaker embedding dimensions mismatch"
+    },
+    {
+      "case": "nonfinite",
+      "exit_code": 1,
+      "error": "Qwen3 Android benchmark failed: Nonfinite saved speaker embedding"
+    }
+  ],
+  "speech_checks": [
+    {
+      "request": 0,
+      "expected": "Hold this position until the convoy gets through. Nobody moves without my signal.",
+      "recognized": "Hold this position until the Convoy gets through nobody moves without my signal"
+    },
+    {
+      "request": 1,
+      "expected": "I've seen a lot of good soldiers go down in places like this. Don't be one of them.",
+      "recognized": "I've seen a lot of good soldiers go down in places like this don't be one of them"
+    },
+    {
+      "request": 2,
+      "expected": "Alright, listen up. We breach on three, clear the stairs, and regroup on the roof.",
+      "recognized": "All right listen up we breach on three clear the stairs and regroup on the roof"
+    },
+    {
+      "request": 3,
+      "expected": "You did well out there today. Get some rest, because tomorrow is going to be a lot worse.",
+      "recognized": "You did well out there today get some rest because tomorrow is going to be a lot worse"
+    }
+  ],
+  "limitations": [
+    "Native C++ benchmark adapter; not integrated into the loadable plugin ABI.",
+    "Speaker-only conditioning differs from full reference cloning; voice similarity and human listening unassessed.",
+    "Sequential runs without controlled thermal conditions.",
+    "Historical full-reference run used an ignored max_new_tokens option. Current harness uses max_tokens; precomputed adapter sets the 256-token cap directly."
+  ]
+}

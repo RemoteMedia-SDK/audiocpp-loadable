@@ -847,7 +847,9 @@ impl Engine {
             });
             if operation == "reset" {
                 if let Some(s) = self.sessions.remove(sid) {
-                    self.api.audiocpp_stream_reset(s.handle);
+                    if cfg.mode != "offline" {
+                        self.api.audiocpp_stream_reset(s.handle);
+                    }
                     self.api.audiocpp_session_free(s.handle);
                 }
                 return Ok(());
@@ -966,7 +968,9 @@ impl Engine {
                     let result = self.result(p);
                     self.api.audiocpp_result_free(p);
                     let mut result = result?;
-                    result["request_id"] = id;
+                    // Offline sessions outlive one request: answer with this
+                    // request's id, not the one the session was created for.
+                    result["request_id"] = v["request_id"].clone();
                     result["final"] = json!(true);
                     emit(result)?;
                 } else {
@@ -1013,11 +1017,11 @@ impl Engine {
                 }
                 Ok(())
             })();
-            if cfg.mode == "offline"
-                || operation == "finish"
-                || operation == "generate"
-                || result.is_err()
-            {
+            // Offline sessions are kept for the next request: creating one
+            // allocates the model's graph arenas, and per-session caches (e.g.
+            // IndexTTS's prepared speaker reference) only pay off on reuse.
+            // They are released on error, `reset`, unload of the node, or drop.
+            if operation == "finish" || operation == "generate" || result.is_err() {
                 if let Some(s) = self.sessions.remove(sid) {
                     self.api.audiocpp_session_free(s.handle);
                 }

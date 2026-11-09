@@ -134,9 +134,20 @@ impl AsyncStreamingNode for AudioCppNode {
 pub struct AudioCppFactory;
 #[derive(Default)]
 pub struct AudioCppModelManagerFactory;
+/// Drop host-reserved `__…` keys (the executor injects e.g.
+/// `__python_version__` from a manifest's `python_env`) so the strict
+/// `deny_unknown_fields` config still rejects real typos.
+fn strip_host_keys(mut v: serde_json::Value) -> serde_json::Value {
+    if let Some(map) = v.as_object_mut() {
+        map.retain(|k, _| !k.starts_with("__"));
+    }
+    v
+}
+
 fn factory(params: RString, manager: bool) -> RResult<FfiNodeBox, RString> {
     let result = serde_json::from_str(params.as_str())
         .map_err(|e| e.to_string())
+        .map(strip_host_keys)
         .and_then(|v| AudioCppNode::create(v, manager));
     match result {
         Ok(node) => ROk(FfiNode_TO::from_value(
@@ -162,4 +173,17 @@ impl FfiNodeFactory for AudioCppModelManagerFactory {
         factory(p, true)
     }
 }
+#[cfg(feature = "plugin-export")]
 remotemedia_plugin_sdk::plugin_export!(AudioCppFactory, AudioCppModelManagerFactory);
+
+#[cfg(test)]
+mod host_key_tests {
+    #[test]
+    fn host_reserved_keys_are_dropped_but_typos_are_kept() {
+        let v = super::strip_host_keys(serde_json::json!({
+            "__python_version__": "3.12", "model": "m", "modle": "typo"
+        }));
+        assert_eq!(v, serde_json::json!({ "model": "m", "modle": "typo" }));
+        assert!(serde_json::from_value::<crate::wire::Config>(v).is_err(), "typos still rejected");
+    }
+}
