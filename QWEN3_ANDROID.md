@@ -11,12 +11,12 @@ utilities. It does not run the Rust loadable-plugin host or install an APK.
 Build with the cached NDK r30 and pinned audio.cpp source:
 
 ```powershell
-& examples/audiocpp-loadable/build-android.ps1 `
+& build-android.ps1 `
   -Models 'pocket_tts,index_tts2,pulsevad,moonshine_asr,qwen3_tts' `
   -ArmArchitecture 'armv8.2-a+dotprod+fp16' -QwenBenchmark `
-  -DistDirectory examples/audiocpp-loadable/dist/android-arm64-qwen3
+  -DistDirectory dist/android-arm64-qwen3
 
-python examples/audiocpp-loadable/test-qwen3-android.py `
+python test-qwen3-android.py `
   --device 'YOUR_ADB_SERIAL_OR_IP:PORT' `
   --model 'D:/audiocpp-cache-compare/Qwen3-TTS-12Hz-1.7B-Base-GGUF/qwen3-tts-12hz-1.7b-base-q8_0_v2.gguf' `
   --reference-wav 'D:/cc-render/avatars/reece_head_arkit.voice.wav' `
@@ -139,23 +139,23 @@ the reference transcript and speech codes, including their repeated decoding cos
 It may change voice similarity, cadence and generated duration.
 
 Build into a separate output folder using the command above, adding
-`-DistDirectory examples/audiocpp-loadable/dist/android-arm64-qwen3-precomputed`.
+`-DistDirectory dist/android-arm64-qwen3-precomputed`.
 Then export the voice on Android and benchmark it in a separate process:
 
 ```powershell
-python examples/audiocpp-loadable/test-qwen3-android.py `
+python test-qwen3-android.py `
   --device '192.168.18.60:39563' `
   --model 'D:/audiocpp-cache-compare/Qwen3-TTS-12Hz-1.7B-Base-GGUF/qwen3-tts-12hz-1.7b-base-q8_0_v2.gguf' `
   --reference-wav 'D:/cc-render/avatars/reece_head_arkit.voice.wav' `
   --voice-mode precomputed --case-limit 4 --repeat-first `
-  --dist examples/audiocpp-loadable/dist/android-arm64-qwen3-precomputed `
+  --dist dist/android-arm64-qwen3-precomputed `
   --name reece-precomputed
 ```
 
 To reuse the saved file, use a new run name and replace `--reference-wav` with:
 
 ```powershell
---speaker-embedding examples/audiocpp-loadable/dist/android-arm64-qwen3-precomputed/device-results/reece-precomputed/audio/voice.json
+--speaker-embedding dist/android-arm64-qwen3-precomputed/device-results/reece-precomputed/audio/voice.json
 ```
 
 No reference WAV or transcript is read or sent by the reuse path. Model weights

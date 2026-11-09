@@ -12,9 +12,9 @@ $ErrorActionPreference = 'Stop'
 if ($DeviceDirectory -notmatch '^/data/local/tmp/remotemedia-audiocpp(?:-[a-zA-Z0-9_-]+)?$') {
     throw 'DeviceDirectory must be /data/local/tmp/remotemedia-audiocpp with an optional simple suffix.'
 }
-$workspaceRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
-if (!$Adb) { $Adb = Join-Path $workspaceRoot '.cache/android-tools/platform-tools/adb.exe' }
-if (!$SourceDirectory) { $SourceDirectory = Join-Path $workspaceRoot '.cache/audiocpp-source' }
+$cacheRoot = Join-Path $PSScriptRoot '.cache'
+if (!$Adb) { $Adb = Join-Path $cacheRoot 'android-tools/platform-tools/adb.exe' }
+if (!$SourceDirectory) { $SourceDirectory = Join-Path $cacheRoot 'audiocpp-source' }
 if (!$DistDirectory) { $DistDirectory = Join-Path $PSScriptRoot 'dist/android-arm64-cpu' }
 $SourceDirectory = (Resolve-Path -LiteralPath $SourceDirectory).Path
 $DistDirectory = (Resolve-Path -LiteralPath $DistDirectory).Path

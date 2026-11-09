@@ -76,7 +76,7 @@ def main():
     parser.add_argument("--voice-mode", choices=["full-reference", "x-vector", "precomputed"], default="full-reference")
     parser.add_argument("--speaker-embedding", type=pathlib.Path,
                         help="Reuse an exported voice.json; no reference recording is needed")
-    parser.add_argument("--adb", type=pathlib.Path, default=ROOT.parents[1] / ".cache/android-tools/platform-tools/adb.exe")
+    parser.add_argument("--adb", type=pathlib.Path, default=ROOT / ".cache/android-tools/platform-tools/adb.exe")
     parser.add_argument("--dist", type=pathlib.Path, default=ROOT / "dist/android-arm64-qwen3")
     parser.add_argument("--name", default=time.strftime("qwen3-%Y%m%d-%H%M%S"))
     parser.add_argument("--case-limit", type=int, choices=range(1, 5), default=4)

@@ -5,6 +5,8 @@ Two standalone Rust factories embed audio.cpp in the host process:
 - `AudioCppNode`: native audio/text inference, offline and streaming, with model-specific options and artifacts.
 - `AudioCppModelManagerNode`: catalog, downloads, local imports, persistent cache and loaded-model lifecycle.
 
+This repository is the canonical source of the plugin. RemoteMedia SDK examples that link it in-process (for example `examples/live-link-face-avatar`) expect a clone of it next to the `remotemedia-sdk` checkout, at `../audiocpp-loadable`, like the other plugin repositories.
+
 Upstream is pinned to `06c13737cc39481787a03465697b58b1c954b56f`. The plugin SDK is pinned to the host's `44e02a9d24b1427cce48bc32ef837142787d0ba3`. No native inference dependency is added to the main Cargo workspace.
 
 ## Build and run on Windows

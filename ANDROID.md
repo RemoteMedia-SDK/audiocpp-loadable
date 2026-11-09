@@ -11,14 +11,14 @@ Google's r30, revision `30.0.16248370`. Obtain it from the
 
 ```powershell
 ./build-android.ps1 -NdkDirectory D:/path/to/android-ndk-r30 `
-  -SourceDirectory D:/remotemedia-sdk/.cache/audiocpp-source `
+  -SourceDirectory D:/path/to/audio.cpp `
   -ArmArchitecture 'armv8.2-a+dotprod+fp16' -Jobs 12
 ```
 
-`-SourceDirectory` is optional: the script uses the workspace cache when present;
+`-SourceDirectory` is optional: the script uses `.cache/audiocpp-source` in this repository when present;
 otherwise the native CMake project fetches the pinned source. The current pin is
 `06c13737cc39481787a03465697b58b1c954b56f`. The vendored C header must match.
-`-NdkDirectory` defaults to `ANDROID_NDK_HOME`, then the workspace's cached r30.
+`-NdkDirectory` defaults to `ANDROID_NDK_HOME`, then `.cache/android-tools/android-ndk-r30` in this repository.
 
 The default architecture is portable `armv8-a`. The example above explicitly
 enables dot-product and FP16 instructions confirmed in the Pixel's CPU features.
@@ -53,8 +53,8 @@ Wireless pairing and connection use separate ports.
 ./test-android.ps1 -Device 'PHONE_IP:DEBUG_PORT'
 ```
 
-Supply `-Adb`, `-SourceDirectory` or `-DistDirectory` to override the default
-workspace locations. The test installs files only under
+Supply `-Adb`, `-SourceDirectory` or `-DistDirectory` to override the defaults
+(this repository's `.cache/` and `dist/android-arm64-cpu`). The test installs files only under
 `/data/local/tmp/remotemedia-audiocpp`. It does not install an APK, alter system
 settings, or remove existing application data. It leaves its test files/models
 there for reuse. Logs and exit codes are saved under

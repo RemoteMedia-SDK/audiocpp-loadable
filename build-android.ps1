@@ -17,13 +17,13 @@ function Invoke-Checked([string]$Exe, [string[]]$Arguments) {
     if ($LASTEXITCODE -ne 0) { throw "$Exe failed with exit code $LASTEXITCODE" }
 }
 
-$workspaceRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
-if (!$NdkDirectory) { $NdkDirectory = Join-Path $workspaceRoot '.cache/android-tools/android-ndk-r30' }
+$cacheRoot = Join-Path $PSScriptRoot '.cache'
+if (!$NdkDirectory) { $NdkDirectory = Join-Path $cacheRoot 'android-tools/android-ndk-r30' }
 $NdkDirectory = (Resolve-Path -LiteralPath $NdkDirectory).Path
 $toolchain = Join-Path $NdkDirectory 'build/cmake/android.toolchain.cmake'
 if (!(Test-Path -LiteralPath $toolchain)) { throw "Android NDK toolchain missing: $toolchain" }
 if (!$SourceDirectory) {
-    $cachedSource = Join-Path $workspaceRoot '.cache/audiocpp-source'
+    $cachedSource = Join-Path $cacheRoot 'audiocpp-source'
     if (Test-Path -LiteralPath "$cachedSource/CMakeLists.txt") { $SourceDirectory = $cachedSource }
 }
 if (!$BuildDirectory) { $BuildDirectory = Join-Path $PSScriptRoot 'native/build-android-arm64-cpu' }
